@@ -78,16 +78,109 @@ class Movies extends StatefulWidget {
 }
 
 class MoviesState extends State<Movies> {
+  List listaMovies = [
+        {
+          "title": "Five Easy Pieces",
+          "year": 1970,
+          "genres": null,
+          "summary":
+              "Robert Dupea has given up his promising career as a concert pianist and is now working in oil fields. He lives together with Rayette, who's a waitress in a diner. When Robert hears from his sister that his father isn't well, he drives up to Washington to see him, taking Rayette with him. There he gets confronted with his rich, cultured family that he had left behind.",
+          "medium_cover_image":
+              "https://yts.mx/assets/images/movies/five_easy_pieces_1970/medium-cover.jpg"
+        },
+        {
+          "title": "Renegade",
+          "year": 2004,
+          "genres": null,
+          "summary":
+              "Alledged wayward adolescent Louisiana gentleman Michael 'Mike' Blueberry is dumped by his family with a Wild West uncle. The brute's only 'motivation' is a stick. After a nearly fatal encounter in the brothel with Wallace 'Wally' Sebastian Blount, Mike is left for dead in the desert. A Chiricuahua (Apache) medicine man's family finds, nurses and initiates him. After the shaman's death, Mike returns and becomes the town's honest 'deputy' marshal. Gold fever strikes, with staged Indian brutalities to allow rivaling fiends to invade their sacred mountains.",
+          "medium_cover_image":
+              "https://yts.mx/assets/images/movies/renegade_2004/medium-cover.jpg"
+        },
+        {
+          "title": "Terry Pratchett's Hogfather",
+          "year": 2006,
+          "genres": null,
+          "summary":
+              "It's Hogswatch (equivalent to Christmas) on the Discworld and the Hogfather has gone missing, requiring Death to take his place while his granddaughter Susan endeavors to find out what has happened.",
+          "medium_cover_image":
+              "https://yts.mx/assets/images/movies/terry_pratchetts_hogfather_2006/medium-cover.jpg"
+        },
+        {
+          "title":
+              "Jeff Wayne's Musical Version of the War of the Worlds: The New Generation",
+          "year": 2013,
+          "genres": null,
+          "summary":
+              "Stage musical adaptation of H.G. Wells' alien invasion novel, recorded live at London's O2 arena in 2012. The reimagined story, which was first released in 1978 as a concept album by Jeff Wayne, is narrated by Liam Neeson and includes performances by Jason Donovan, Marti Pellow and Ricky Wilson.",
+          "medium_cover_image":
+              "https://yts.mx/assets/images/movies/jeff_waynes_musical_version_of_the_war_of_the_worlds_the_new_generation_2013/medium-cover.jpg"
+        },
+        {
+          "title": "The Babe",
+          "year": 1992,
+          "genres": null,
+          "summary":
+              "Traces the career of Babe Ruth from his days as a youngster in an orphanage to his last days as a manager. Includes such moments as the famous predicted home run and the promise to little Johnny.",
+          "medium_cover_image":
+              "https://yts.mx/assets/images/movies/the_babe_1992/medium-cover.jpg"
+        }
+      ];
   Widget build(BuildContext contest){
     return Container(
           child:ListView(
             children:<Widget>[
-              Container(
-                child:Text("esta es una pelicula")
-              ),
-              Container(
-                child:Text("esta es una pelicula")
-              ),
+             Row(
+               children:<Widget>[
+                 Expanded(
+                   flex:3,
+                   child:Image.network(listaMovies[0]["medium_cover_image"])
+                 ),
+                 Expanded(
+                   flex:6,
+                   child:Column(
+                     children:<Widget>[
+                       Text(listaMovies[0]["title"]),
+                       Text(listaMovies[0]["summary"])
+                     ]
+                   )
+                 )
+               ]
+             ),
+               Row(
+               children:<Widget>[
+                 Expanded(
+                   flex:3,
+                   child:Image.network(listaMovies[1]["medium_cover_image"])
+                 ),
+                 Expanded(
+                   flex:6,
+                   child:Column(
+                     children:<Widget>[
+                     Text(listaMovies[1]["title"]),
+                       Text(listaMovies[1]["summary"])
+                     ]
+                   )
+                 )
+               ]
+             ),
+               Row(
+               children:<Widget>[
+                 Expanded(
+                   flex:3,
+                   child:Image.network(listaMovies[2]["medium_cover_image"])
+                 ),
+                 Expanded(
+                   flex:6,
+                   child:Column(
+                     children:<Widget>[
+                     Text(listaMovies[2]["title"]),
+                       Text(listaMovies[2]["summary"])
+                     ]
+                   )
+                 )
+               ]
+             ),
             ]
           ),
           color:Colors.amber
