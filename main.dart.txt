@@ -18,9 +18,28 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int indexItem = 0;
   void onTappedItem(int index){
-    
+    setState((){
+      indexItem = index;  
+    });
   }
+  
+  List<Widget> interfaces = <Widget>[
+    Movies(),
+    Container(
+          child:Center(
+            child:Text("this is the body")
+          ),
+          color:Colors.blue
+        ),
+    Container(
+          child:Center(
+            child:Text("this is the body")
+          ),
+          color:Colors.amber
+        )
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,12 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
           title:Text("this is the appbar"),
           backgroundColor:Colors.orange
         ),
-        body:Container(
-          child:Center(
-            child:Text("this is the body")
-          ),
-          color:Colors.green
-        ),
+        body:interfaces.elementAt(indexItem),
         bottomNavigationBar:BottomNavigationBar(
           items:const<BottomNavigationBarItem>[
             BottomNavigationBarItem(
@@ -50,9 +64,33 @@ class _MyHomePageState extends State<MyHomePage> {
               icon:Icon(Icons.call)              
             )
           ],
-          currentIndex:2,
+          currentIndex:indexItem,
           onTap:onTappedItem,
+          backgroundColor:Colors.orange,
+          selectedItemColor:Colors.green
         )
       );
+  }
+}
+class Movies extends StatefulWidget {
+  @override
+  MoviesState createState() => MoviesState();
+}
+
+class MoviesState extends State<Movies> {
+  Widget build(BuildContext contest){
+    return Container(
+          child:ListView(
+            children:<Widget>[
+              Container(
+                child:Text("esta es una pelicula")
+              ),
+              Container(
+                child:Text("esta es una pelicula")
+              ),
+            ]
+          ),
+          color:Colors.amber
+        );
   }
 }
